@@ -11,6 +11,7 @@ interface TMDBResponse {
 
 const BASE_URL = "https://api.themoviedb.org/3/search/movie";
 
+
 export async function fetchMovies(
   query: string
 ): Promise<Movie[]> {
@@ -22,8 +23,7 @@ export async function fetchMovies(
     );
   }
 
- const response: AxiosResponse<TMDBResponse> =
-    await axios.get<TMDBResponse>(
+const response = await axios.get<TMDBResponse>(
       `${BASE_URL}`,
       {
         params: {
