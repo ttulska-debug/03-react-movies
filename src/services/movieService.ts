@@ -14,9 +14,9 @@ const BASE_URL = "https://api.themoviedb.org/3/search/movie";
 export async function fetchMovies(
   query: string
 ): Promise<Movie[]> {
-  const token = import.meta.env.VITE_API_KEY;
+  const myKey = import.meta.env.VITE_API_KEY;
 
-  if (!token) {
+  if (!myKey) {
     throw new Error(
       "TMDB token is missing. Check your .env file."
     );
@@ -33,7 +33,7 @@ export async function fetchMovies(
           page: 1,
         },
         headers: {
-          Authorization: `Bearer ${"VITE_API_KEY"}`,
+          Authorization: `Bearer ${myKey}`,
         },
       }
     );
